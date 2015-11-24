@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+   <!-- package: 包 struts2使用package来组织模块 
+        name 属性 ：必须，一般可以写成模块的名字 用于其他的包引用当前的包 
+        extends： 当前包继承哪个包 ，继承的，即可以继承其中的所有配置，
+                          通常情况下继承struts-default 一个模块对应一个包 -->
+   <package name="plantform"  extends="struts-default">
+   
+            <!-- 配置一个action ：一个struts2的请求就是一个action 
+             name：对应一个struts2的请求的名字(或对应一个servletPath，但去除/ 和扩展名），不包含扩展名 
+             result：结果
+             method 反射调用方法 在Product.java中要提供一个对应的方法 
+                                              在method中的返回值要与result name一致-->
+                              
+          <action name="register">
+             <result>/WEB-INF/pages/register.jsp</result>
+          </action>
+          
+          <action name="change">
+             <result>/WEB-INF/pages/change.jsp</result>
+          </action>
+          
+          <action name="success">
+                <result>/WEB-INF/pages/success.jsp</result>
+          </action>
+          
+          <action name="dataset">
+                <result>/WEB-INF/pages/dataset.jsp</result>
+          </action>
+          
+          <action name="cluster">
+                <result>/WEB-INF/pages/cluster.jsp</result>
+          </action>
+                 
+           <action name="loginconfirm" class="com.struts2.userinfo.Userinfo" 
+             method="confirm">
+             <result name="error">/WEB-INF/pages/userinfoerror.jsp</result>
+             <result name="success">/WEB-INF/pages/success.jsp</result>
+          </action>
+          
+           <action name="registconfirm" class="com.struts2.userinfo.Userinfo" 
+             method="regist">
+             <result name="error">/WEB-INF/pages/usererror.jsp</result>
+             <result name="success">/WEB-INF/pages/success.jsp</result>
+          </action>
+          
+          <action name="changepsw" class="com.struts2.userinfo.Userinfo" 
+             method="changepsw">
+             <result name="error">/WEB-INF/pages/pswchangeerror.jsp</result>
+             <result name="success">/WEB-INF/pages/success.jsp</result>
+          </action>
+                              
+          <action name="quit">
+                <result>/WEB-INF/pages/quit.jsp</result>
+          </action>
+          
+          <action name="data" class="hadoop.data">
+          	<result name="json"/>
+          </action>
+          
+           <action name="data2" class="hadoop.data2">
+          	<result name="json"/>
+          </action> 
+          
+          <action name="data3" class="hadoop.data3">
+          	<result name="json"/>
+          </action>
+          
+          <action name="echart1" class="com.echart1">         
+            <result name="json"/>  
+          </action>
+                            
+    </package>
+
+</struts>
